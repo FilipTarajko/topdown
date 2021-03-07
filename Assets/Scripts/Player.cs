@@ -8,11 +8,12 @@ public class Player : MonoBehaviour
     public float movementSpeed;
     public float timeToAttack;
     public float attackCooldown;
-    public Transform _Dynamic;
+    public Transform playerBulletParent;
     public PlayerBullet playerBullet;
     public float bulletSpeed;
     public Vector3 targetDirection;
     public float weaponRange;
+    public float weaponDamage;
 
     void Update()
     {
@@ -54,9 +55,10 @@ public class Player : MonoBehaviour
         Vector3 targetDirection = Input.mousePosition - new Vector3(Screen.width / 2, Screen.height / 2, 0);
         targetDirection.Normalize();
         timeToAttack = attackCooldown;
-        PlayerBullet bullet = Instantiate(playerBullet, transform.position, Quaternion.identity, _Dynamic);
+        PlayerBullet bullet = Instantiate(playerBullet, transform.position, Quaternion.identity, playerBulletParent);
         bullet.speed = bulletSpeed;
         bullet.transform.up = targetDirection;
         bullet.range = weaponRange;
+        bullet.damage = weaponDamage;
     }
 }
