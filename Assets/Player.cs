@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public PlayerBullet playerBullet;
     public float bulletSpeed;
     public Vector3 targetDirection;
+    public float weaponRange;
 
     void Update()
     {
@@ -56,5 +57,6 @@ public class Player : MonoBehaviour
         PlayerBullet bullet = Instantiate(playerBullet, transform.position, Quaternion.identity, _Dynamic);
         bullet.speed = bulletSpeed;
         bullet.transform.up = targetDirection;
+        bullet.range = weaponRange;
     }
 }

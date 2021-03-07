@@ -5,9 +5,20 @@ using UnityEngine;
 public class PlayerBullet : MonoBehaviour
 {
     public float speed;
+    public float range;
+    public Vector2 startPosition;
+
+    private void Start()
+    {
+        startPosition = transform.position;
+    }
 
     void Update()
     {
         transform.Translate(Vector3.up * Time.deltaTime * speed);
+        if(Vector2.Distance(startPosition, transform.position) > range)
+        {
+            Destroy(gameObject);
+        }
     }
 }
