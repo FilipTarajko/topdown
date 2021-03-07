@@ -15,19 +15,42 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        movementDirection = new Vector2((Input.GetKey("d")?1:0) - (Input.GetKey("a")?1:0), (Input.GetKey("w")?1:0) - (Input.GetKey("s")?1:0));
+        HandleMoving();
+        HandleCamera();
+        HandleShooting();
+    }
+
+    void HandleMoving()
+    {
+        movementDirection = new Vector2((Input.GetKey("d") ? 1 : 0) - (Input.GetKey("a") ? 1 : 0), (Input.GetKey("w") ? 1 : 0) - (Input.GetKey("s") ? 1 : 0));
         movementDirection.Normalize();
         transform.Translate(movementDirection * movementSpeed * Time.deltaTime);
+    }
+
+    void HandleCamera()
+    {
+        if (Input.GetKey(KeyCode.Equals) && Camera.main.orthographicSize >= 250)
+        {
+            Camera.main.orthographicSize -= 10;
+        }
+        if (Input.GetKey(KeyCode.Minus) && Camera.main.orthographicSize <=5000)
+        {
+            Camera.main.orthographicSize += 10;
+        }
+    }
+
+    void HandleShooting()
+    {
         timeToAttack -= Time.deltaTime;
         if (timeToAttack <= 0 && Input.GetMouseButton(0))
         {
             Shoot();
         }
     }
-    
+
     void Shoot()
     {
-        Vector3 targetDirection = Input.mousePosition - new Vector3(Screen.width/2, Screen.height/2, 0);
+        Vector3 targetDirection = Input.mousePosition - new Vector3(Screen.width / 2, Screen.height / 2, 0);
         targetDirection.Normalize();
         timeToAttack = attackCooldown;
         PlayerBullet bullet = Instantiate(playerBullet, transform.position, Quaternion.identity, _Dynamic);
