@@ -2,21 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicTarget : MonoBehaviour
+public abstract class BasicTarget : MonoBehaviour
 {
     public GameController gameController;
     public float health;
+    public bool isDamageable;
+    public float speed;
+    public float visionRange;
+    public Transform enemyBulletParent;
 
-    void Update()
+    private void Update()
     {
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
+        Frame();
+        CheckForDeath();
         HandleRotation();
     }
 
-    void HandleRotation()
+    public abstract void Frame();
+
+    private void HandleRotation()
     {
         if (Input.GetKey("q"))
         {
@@ -32,8 +36,19 @@ public class BasicTarget : MonoBehaviour
         }
     }
 
-    public void DealDamage(float damage)
+    private void CheckForDeath()
     {
-        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        if (isDamageable)
+        {
+            health -= damage;
+        }
     }
 }

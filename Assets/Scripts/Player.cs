@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public float weaponRange;
     public float weaponDamage;
     public float rotationSpeed;
+    public float health;
 
     void Update()
     {
@@ -79,5 +80,21 @@ public class Player : MonoBehaviour
         bullet.transform.up = targetDirection;
         bullet.range = weaponRange;
         bullet.damage = weaponDamage;
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("EnemyBullet"))
+        {
+            if (other.TryGetComponent<EnemyBullet>(out var enemyBullet))
+            {
+                TakeDamage(enemyBullet.damage);
+            }
+            Destroy(enemyBullet.gameObject);
+        }
+    }
+
+    void TakeDamage(float damage)
+    {
+        health -= damage;
     }
 }

@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 62f945207aba72d44a37487a8bf0b482, type: 3}
-  m_Color: {r: 1, g: 0.3915094, b: 0.3915094, a: 1}
+  m_Color: {r: 0.7341706, g: 0.21226418, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -91,11 +91,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6264749267426404907}
-  - component: {fileID: 6264749267426404917}
   - component: {fileID: 6264749267426404918}
   - component: {fileID: 218300585733668590}
+  - component: {fileID: 4787793771868016051}
   m_Layer: 0
-  m_Name: BasicTarget
+  m_Name: PurpleBall
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,20 +116,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6264749267426404917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6264749267426404906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91fb167554f9c6b4eb7c1c8f3021f566, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameController: {fileID: 0}
-  health: 3
 --- !u!58 &6264749267426404918
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -197,3 +183,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4787793771868016051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6264749267426404906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86b25b117cac8b544af43283f456772f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
+  health: 3
+  isDamageable: 1
+  speed: 0
+  visionRange: 800
+  enemyBulletParent: {fileID: 0}
+  timeToAttack: 0
+  attackCooldown: 1
+  bulletSpeed: 500
+  weaponRange: 1000
+  weaponDamage: 1
+  purpleCubeBullet: {fileID: 6232579723220219462, guid: c9b4eb8e5b7466949acdb3cd1e5b5db6, type: 3}
