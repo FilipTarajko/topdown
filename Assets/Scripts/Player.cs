@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -15,7 +16,14 @@ public class Player : MonoBehaviour
     public float weaponRange;
     public float weaponDamage;
     public float rotationSpeed;
+    public float maxHealth;
     public float health;
+    public Slider healthbarSlider;
+
+    private void Start()
+    {
+        HandleHealthbar();
+    }
 
     void Update()
     {
@@ -23,6 +31,11 @@ public class Player : MonoBehaviour
         HandleRotation();
         HandleCamera();
         HandleShooting();
+    }
+
+    void HandleHealthbar()
+    {
+        healthbarSlider.value = health / maxHealth;
     }
 
     void HandleMoving()
@@ -96,5 +109,6 @@ public class Player : MonoBehaviour
     void TakeDamage(float damage)
     {
         health -= damage;
+        HandleHealthbar();
     }
 }
