@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    public Data data;
     public Player player;
     public Transform enemyParent;
     public Transform enemyBulletParent;

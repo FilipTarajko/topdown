@@ -23,17 +23,20 @@ public abstract class BasicTarget : MonoBehaviour
 
     private void HandleRotation()
     {
-        if (Input.GetKey("q"))
+        if (gameController.data.allowRotation)
         {
-            transform.Rotate(new Vector3(0, 0, gameController.player.rotationSpeed));
-        }
-        if (Input.GetKey("e"))
-        {
-            transform.Rotate(new Vector3(0, 0, -gameController.player.rotationSpeed));
-        }
-        if (Input.GetKey("z"))
-        {
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            if (Input.GetKey("q"))
+            {
+                transform.Rotate(new Vector3(0, 0, gameController.player.rotationSpeed));
+            }
+            if (Input.GetKey("e"))
+            {
+                transform.Rotate(new Vector3(0, 0, -gameController.player.rotationSpeed));
+            }
+            if (Input.GetKey("z"))
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            }
         }
     }
 

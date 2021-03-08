@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public GameController gameController;
     public Vector2 movementDirection;
     public float movementSpeed;
     public float timeToAttack;
@@ -47,17 +48,20 @@ public class Player : MonoBehaviour
 
     void HandleRotation()
     {
-        if (Input.GetKey("q"))
+        if (gameController.data.allowRotation)
         {
-            transform.Rotate(new Vector3(0, 0, rotationSpeed));
-        }
-        if (Input.GetKey("e"))
-        {
-            transform.Rotate(new Vector3(0, 0, -rotationSpeed));
-        }
-        if (Input.GetKey("z"))
-        {
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            if (Input.GetKey("q"))
+            {
+                transform.Rotate(new Vector3(0, 0, rotationSpeed));
+            }
+            if (Input.GetKey("e"))
+            {
+                transform.Rotate(new Vector3(0, 0, -rotationSpeed));
+            }
+            if (Input.GetKey("z"))
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            }
         }
     }
 
