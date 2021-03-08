@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PurpleCube : BasicTarget
+public class ChasingBall : BasicTarget
 {
     public float timeToAttack;
     public float attackCooldown;
@@ -19,9 +19,19 @@ public class PurpleCube : BasicTarget
     public override void Frame()
     {
         HandleShooting();
+        HandleMoving();
     }
 
-    void HandleShooting()
+    private void HandleMoving()
+    {
+        float playerDistance = Vector2.Distance(gameController.player.transform.position, transform.position);
+        if (playerDistance < visionRange)
+        {
+             transform.position = Vector2.MoveTowards(transform.position, gameController.player.transform.position, speed * Time.deltaTime);
+        }
+    }
+
+void HandleShooting()
     {
         timeToAttack -= Time.deltaTime;
         if (timeToAttack <= 0 && Vector2.Distance(transform.position, gameController.player.transform.position) < visionRange)

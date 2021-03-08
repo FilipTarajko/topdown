@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 62f945207aba72d44a37487a8bf0b482, type: 3}
-  m_Color: {r: 0.7341706, g: 0.21226418, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.858847, b: 0.8773585, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -93,9 +93,9 @@ GameObject:
   - component: {fileID: 6264749267426404907}
   - component: {fileID: 6264749267426404918}
   - component: {fileID: 218300585733668590}
-  - component: {fileID: 4787793771868016051}
+  - component: {fileID: 5432867725838346308}
   m_Layer: 0
-  m_Name: PurpleBall
+  m_Name: ChasingBall
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,7 +183,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4787793771868016051
+--- !u!114 &5432867725838346308
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,19 +192,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 6264749267426404906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86b25b117cac8b544af43283f456772f, type: 3}
+  m_Script: {fileID: 11500000, guid: 09f61740ac3d2a74ebe5838124349048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 0}
-  health: 3
+  health: 2
   isDamageable: 1
-  speed: 0
+  speed: 300
   visionRange: 800
   enemyBulletParent: {fileID: 0}
   spriteRenderer: {fileID: 3081112554367092629}
   timeToAttack: 0
   attackCooldown: 1
-  bulletSpeed: 500
-  weaponRange: 1000
+  bulletSpeed: 1000
+  weaponRange: 500
   weaponDamage: 1
   bulletPrefab: {fileID: 6232579723220219462, guid: c9b4eb8e5b7466949acdb3cd1e5b5db6, type: 3}

@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public Transform enemyBulletParent;
     public TrainingTarget trainingTarget;
     public PurpleCube purpleCube;
+    public ChasingBall chasingBall;
 
     private void Start()
     {
@@ -17,11 +18,19 @@ public class GameController : MonoBehaviour
         {
             TrainingTarget spawned = Instantiate(trainingTarget, new Vector3(700, -350+i, 0), Quaternion.identity, enemyParent);
             spawned.gameController = this;
+            spawned.enemyBulletParent = enemyBulletParent;
         }
         for (int i = 0; i<3; i++)
         {
             PurpleCube spawned = Instantiate(purpleCube, new Vector3(i * 300, 1000, 0), Quaternion.identity, enemyParent);
             spawned.gameController = this;
+            spawned.enemyBulletParent = enemyBulletParent;
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            ChasingBall spawned = Instantiate(chasingBall, new Vector3(i * 300, 2000, 0), Quaternion.identity, enemyParent);
+            spawned.gameController = this;
+            spawned.enemyBulletParent = enemyBulletParent;
         }
     }
 

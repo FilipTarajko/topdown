@@ -10,6 +10,7 @@ public abstract class BasicTarget : MonoBehaviour
     public float speed;
     public float visionRange;
     public Transform enemyBulletParent;
+    public SpriteRenderer spriteRenderer;
 
     private void Update()
     {

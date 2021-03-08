@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1234041557884297341}
   - component: {fileID: 6232579723220219462}
   m_Layer: 0
-  m_Name: PurpleCubeBullet
+  m_Name: BasicEnemyBullet
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.73333335, g: 0.21176471, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -116,3 +116,4 @@ MonoBehaviour:
   range: 0
   startPosition: {x: 0, y: 0}
   damage: 0
+  spriteRenderer: {fileID: 4288903193212689335}

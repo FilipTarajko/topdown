@@ -8,6 +8,7 @@ public class EnemyBullet : MonoBehaviour
     public float range;
     public Vector2 startPosition;
     public float damage;
+    public SpriteRenderer spriteRenderer;
 
     private void Start()
     {
