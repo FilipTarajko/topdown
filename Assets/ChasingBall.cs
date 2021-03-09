@@ -45,6 +45,7 @@ void HandleShooting()
         Vector3 targetDirection = gameController.player.transform.position - transform.position;
         targetDirection.Normalize();
         targetDirection = Quaternion.AngleAxis(transform.rotation.eulerAngles.z, new Vector3(0, 0, 1)) * targetDirection;
+        targetDirection = Quaternion.Inverse(transform.rotation) * targetDirection;
         timeToAttack = attackCooldown;
         EnemyBullet bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity, enemyBulletParent);
         bullet.speed = bulletSpeed;
